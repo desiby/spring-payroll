@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <title>Employees</title>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(employees)}">
+        <h1>Employees List</h1>
+        <a href="/employee/new"><button>Create New Employee</button></a>
+        <table class="u-full-width">
+            <tr>
+                <th>Employee Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Salary</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Edit</th>
+            </tr>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}"><a href="/employee/${employee.id}">Employee Id</a></td>
+                <td th:text="${employee.firstName}">First Name</td>
+                <td th:text="${employee.lastName}">Last Name</td>
+                <td th:text="${employee.salary}">salary</td>
+                <td><a th:href="${'/employee/' + employee.id}">View</a></td>
+                <td><a th:href="${'/employee/edit/' + employee.id}">Edit</a></td>
+                <td><a th:href="${'/employee/delete/' + employee.id}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

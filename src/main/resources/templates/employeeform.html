@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <title>Employee Form</title>
+</head>
+<body>
+<div class="container">
+
+    <h1>Employee Form</h1>
+
+    <div class="row">
+        <form th:object="${employee}" th:action="@{/employee}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{version}"/>
+            <div>
+                <label>First Name:  <input type="text" th:field="*{firstName}"/></label><br/>
+                <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+            </div>
+            <div>
+                <label>Last Name:  <input type="text" th:field="*{lastName}"/></label><br/>
+                <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+            </div>
+            <div>
+                <label>Salary:<input style="margin-left: 35px" type="text" th:field="*{salary}"/></label><br/>
+                <p th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></p>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/employees"><button>Cancel</button></a>
+    </div>
+</div>
+
+</body>
+</html>
