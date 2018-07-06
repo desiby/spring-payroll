@@ -56,7 +56,7 @@ public class EmployeeController extends WebMvcConfigurerAdapter{
             return "employeeform";
         }
         employeeService.saveEmployee(employee);
-        return "redirect:/employees";
+        return "redirect:/";
     }
 
     /**
@@ -76,7 +76,7 @@ public class EmployeeController extends WebMvcConfigurerAdapter{
      * @param model mapped to all Employees
      * @return list of employees in employees.html
      */
-    @GetMapping("employees")
+    @GetMapping("/")
     public String list(Model model){
         model.addAttribute("employees", employeeService.findAllEmployees());
         return "employees";
@@ -102,7 +102,7 @@ public class EmployeeController extends WebMvcConfigurerAdapter{
     @RequestMapping("employee/delete/{id}")
     public String delete(@PathVariable Long id){
         employeeService.deleteEmployee(id);
-        return "redirect:/employees";
+        return "redirect:/";
     }
 
 }
