@@ -20,7 +20,7 @@ public class Employee {
     private String lastName;
     @NotNull
     @DecimalMin("1000")
-    @DecimalMax("10000")
+    @DecimalMax("90000")
     private Double salary;
 
     public Employee(){}

@@ -56,7 +56,7 @@ public class EmployeeController extends WebMvcConfigurerAdapter{
             return "employeeform";
         }
         employeeService.saveEmployee(employee);
-        return "redirect:/employee/" + employee.getId();
+        return "redirect:/employees";
     }
 
     /**
